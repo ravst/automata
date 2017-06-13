@@ -1,0 +1,46 @@
+name:                automata
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/ravst/automata#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Rafał Stefański
+maintainer:          rafal.m.stefanski@gmail.com
+copyright:           2017 Rafał Stefański
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Automata.NFA,
+                       Automata.Regex.Parser,
+                       Automata.Regex.Data,
+                       Automata.Regex.QQ,
+                       Automata.Regex.Compiler
+  hs-source-dirs:      src
+  build-depends:       base >= 4.7 && < 5,
+                       parsec,
+                       mtl,
+                       dlist,
+                       syb,
+                       template-haskell,
+                       containers
+  default-language:    Haskell2010
+
+test-suite spec
+    type:              exitcode-stdio-1.0
+    main-is:           Spec.hs
+    build-depends:     automata,
+                       base >=4.7 && < 5,
+                       hspec,
+                       parsec,
+                       QuickCheck
+    default-language:  Haskell2010
+    hs-source-dirs:    tests
+
+
+source-repository head
+  type:     git
+  location: https://github.com/ravst/automata
